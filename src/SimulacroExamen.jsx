@@ -63,6 +63,8 @@ export default function SimulacroExamen() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [flagged, setFlagged] = useState(new Set());
+  const [showReview, setShowReviewState] = useState(false);
+  const [reviewIdx, setReviewIdx] = useState(0);
 
   // Timer
   useEffect(() => {
@@ -498,10 +500,6 @@ export default function SimulacroExamen() {
   }
 
   // ── RESULTS ──
-  // Review state (always declared at top level)
-  const [showReview, setShowReviewState] = useState(false);
-  const [reviewIdx, setReviewIdx] = useState(0);
-
   if (screen === "results" && results) {
     const wrongQuestions = examQuestions.filter(q => answers[q.id] !== undefined && answers[q.id] !== q.respuesta_correcta);
 
